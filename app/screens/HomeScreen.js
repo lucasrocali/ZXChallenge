@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native';
 import styled from "styled-components";
+import Geocoder from 'react-native-geocoding';
+
+Geocoder.init('AIzaSyCdOZlc7yeS8DUWqaU00c0MWOs3MlZoekM'); // use a valid API key
 
 const Container = styled.View`
     flex: 1;
@@ -40,7 +43,15 @@ class HomeScreen extends React.Component {
             />
             <Button
                 title="Buscar"
-                onPress={() => this.props.navigation.navigate('Products')}
+                onPress={() => {
+                    Geocoder.from("Colosseum")
+                    .then(json => {
+                        var location = json.results[0].geometry.location;
+                        this.props.navigation.navigate('Establishments',{lat: location.lat, lng: location.lng})
+                        console.log(location);
+                    })
+                    .catch(error => console.warn(error));
+                }}
             />
             <Button
                 title="Go to Categories"

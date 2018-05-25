@@ -3,12 +3,16 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 
 import HomeScreen from '../screens/HomeScreen';
+import EstablishmentsScreen from '../screens/EstablishmentsScreen';
 import ProductsScreen from '../screens/ProductsScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
 
 export const HomeStack = createStackNavigator({
     Home: {
       screen: HomeScreen,
+    },
+    Establishments: {
+      screen: EstablishmentsScreen,
     },
     Products: {
         screen: ProductsScreen,
