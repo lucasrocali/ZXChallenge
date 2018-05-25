@@ -1,25 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import styled from "styled-components";
 
-export default class Home extends React.Component {
+const Container = styled.View`
+    flex: 1;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+`;
+
+class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <Container>
         <Text>Home</Text>
         <Button
           title="Go to Products"
           onPress={() => this.props.navigation.navigate('Products')}
         />
-      </View>
+        <Button
+          title="Go to Categories"
+          onPress={() => this.props.navigation.navigate('Categories')}
+        />
+      </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default HomeScreen;

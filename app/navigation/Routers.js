@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import HomeScreen from '../screens/HomeScreen';
 import ProductsScreen from '../screens/ProductsScreen';
+import CategoriesScreen from '../screens/CategoriesScreen';
 
 export const HomeStack = createStackNavigator({
     Home: {
@@ -12,6 +13,12 @@ export const HomeStack = createStackNavigator({
     Products: {
         screen: ProductsScreen,
     }
+});
+
+export const CategoriesStack = createStackNavigator({
+  Categories: {
+    screen: CategoriesScreen,
+  }
 });
 
 export const MainScreenStack = createBottomTabNavigator(
@@ -25,6 +32,9 @@ export const MainScreenStack = createBottomTabNavigator(
 export const RootStack = createStackNavigator({
     Main: {
       screen: MainScreenStack,
+    },
+    Categories: {
+      screen: CategoriesStack
     }
   }, {
     initialRouteName: 'Main',
