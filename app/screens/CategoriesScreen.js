@@ -54,8 +54,7 @@ class CategoriesScreen extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-        if (this.props.allCategoriesQuery.loading) {
+        if (this.props.data.loading) {
             return (
                 <Container>
                     <ActivityIndicator/>
@@ -64,7 +63,7 @@ class CategoriesScreen extends React.Component {
         }
         return (
             <CategoriesContainer
-                data={this.props.allCategoriesQuery.allCategory ? this.props.allCategoriesQuery.allCategory : []}
+                data={this.props.data.allCategory ? this.props.data.allCategory : []}
                 renderItem={this.renderCategory}
                 keyExtractor={(item, index) => index.toString()}
 
@@ -73,4 +72,4 @@ class CategoriesScreen extends React.Component {
     }
 }
 
-export default graphql(allCategoriesQuery, {name: 'allCategoriesQuery'})(CategoriesScreen)
+export default graphql(allCategoriesQuery, {})(CategoriesScreen)
